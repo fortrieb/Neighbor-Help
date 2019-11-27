@@ -3,9 +3,13 @@
     <vue-grid>
       <vue-grid-row :class="[flip ? $style.flip : null]">
         <vue-grid-item :class="$style.image">
-          <vue-image :src="image" :native="false" :class="$style.image" />
+          <a :href="link" :title="title">
+            <vue-image :src="image" :native="false" :class="$style.image" />
+          </a>
         </vue-grid-item>
-        <vue-grid-item :class="$style.text"><slot /></vue-grid-item>
+        <vue-grid-item :class="$style.text">
+          <slot />
+        </vue-grid-item>
       </vue-grid-row>
     </vue-grid>
   </div>
@@ -16,10 +20,11 @@ import VueGrid from '@components/VueGrid/VueGrid.vue';
 import VueGridRow from '@components/VueGridRow/VueGridRow.vue';
 import VueGridItem from '@components/VueGridItem/VueGridItem.vue';
 import VueImage from '@components/VueImage/VueImage.vue';
+import VueButton from '@components/VueButton/VueButton.vue';
 
 export default {
   name: 'HomeSection',
-  components: { VueImage, VueGridItem, VueGridRow, VueGrid },
+  components: { VueImage, VueGridItem, VueGridRow, VueGrid, VueButton },
   props: {
     image: {
       type: String,
@@ -30,6 +35,9 @@ export default {
     },
     flip: {
       type: Boolean,
+    },
+    link: {
+      type: String,
     },
   },
 };

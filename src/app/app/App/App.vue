@@ -5,27 +5,12 @@
     <vue-navigation-progress :is-navigating="isNavigating" />
 
     <vue-nav-bar>
-      <vue-button slot="right" v-if="isAuthenticated === false" color="primary" @click="showLoginModal = true">
-        Login
-      </vue-button>
-
-      <vue-button slot="right" v-if="isAuthenticated" color="primary" @click="onLogout">
-        Logout
-      </vue-button>
+      <vue-headline slot="middle" level="4">MyLausitz</vue-headline>
     </vue-nav-bar>
 
     <router-view :class="$style.content" />
 
     <vue-footer />
-
-    <vue-cookie-consent
-      current-version="1.0.0"
-      :cookie-consent-version="cookieConsentVersion"
-      :set-cookie-consent-version="setCookieConsentVersion"
-    >
-      This is a cookie consent component which shows the cookie consent every time you change the version of the
-      consent.
-    </vue-cookie-consent>
 
     <vue-sidebar>
       <vue-sidebar-group title="Languages">
@@ -35,77 +20,27 @@
       </vue-sidebar-group>
 
       <vue-sidebar-group title="Navigation">
-        <vue-sidebar-group-item to="/">
-          <vue-icon-code />
-          Home
-        </vue-sidebar-group-item>
+        <vue-sidebar-group-item to="/"> <vue-icon-code />Home </vue-sidebar-group-item>
 
-        <vue-sidebar-group-item :to="{ name: 'counter' }">
-          <vue-icon-hashtag />
-          VueX Example
-        </vue-sidebar-group-item>
-
-        <vue-sidebar-group-item :to="{ name: 'form' }">
-          <vue-icon-hashtag />
-          Form Example
-        </vue-sidebar-group-item>
+        <vue-sidebar-group-item :to="{ name: 'help' }"> <vue-icon-puzzle-piece />Notruf </vue-sidebar-group-item>
       </vue-sidebar-group>
 
-      <vue-sidebar-group title="Documentation">
+      <vue-sidebar-group title="Digatale Dörfer">
         <vue-sidebar-group-item>
-          <a href="https://vuesion.github.io/docs/en/">
-            <vue-icon-book />
-            Documentation
-          </a>
+          <a href="https://www.digitale-doerfer.de/"> <vue-icon-book />Projekt - Digitale Dörfer </a>
         </vue-sidebar-group-item>
 
         <vue-sidebar-group-item>
-          <a href="/storybook/?path=/story/design-system-design-system--intro">
-            <vue-icon-book />
-            Design System
-          </a>
-        </vue-sidebar-group-item>
-
-        <vue-sidebar-group-item>
-          <a href="/storybook/?path=/story/atoms-badge--badge-variants">
-            <vue-icon-puzzle-piece />
-            Components
-          </a>
-        </vue-sidebar-group-item>
-      </vue-sidebar-group>
-
-      <vue-sidebar-group title="Community">
-        <vue-sidebar-group-item>
-          <a href="https://github.com/vuesion/vuesion" target="_blank" rel="noopener">
-            <vue-icon-github />
-            Github
-          </a>
-        </vue-sidebar-group-item>
-
-        <vue-sidebar-group-item>
-          <a href="https://discord.gg/59x5cg2" target="_blank" rel="noopener"> Discord </a>
-        </vue-sidebar-group-item>
-
-        <vue-sidebar-group-item>
-          <a href="https://slack-vuesion.herokuapp.com/" target="_blank" rel="noopener"> Slack </a>
-        </vue-sidebar-group-item>
-
-        <vue-sidebar-group-item>
-          <a href="https://chat.vuejs.org/" target="_blank" rel="noopener"> VueLand </a>
-        </vue-sidebar-group-item>
-
-        <vue-sidebar-group-item>
-          <a href="https://twitter.com/vuesion1" target="_blank" rel="noopener">
-            <vue-icon-twitter-square />
-            Twitter
+          <a href="https://www.iese.fraunhofer.de/de/innovation_trends/sra/digitale_doerfer.html">
+            <vue-icon-book />Fraunhofer
           </a>
         </vue-sidebar-group-item>
       </vue-sidebar-group>
     </vue-sidebar>
 
-    <vue-modal :show="showLoginModal" @close="showLoginModal = false">
+    <!-- <vue-modal :show="showLoginModal" @close="showLoginModal = false">
       <login-form :loading="isLoginPending" @submit="onLoginSubmit" />
-    </vue-modal>
+    </vue-modal>-->
   </div>
 </template>
 
@@ -118,7 +53,6 @@ import VueGrid from '@components/VueGrid/VueGrid.vue';
 import VueGridItem from '@components/VueGridItem/VueGridItem.vue';
 import VueFooter from '@components/VueFooter/VueFooter.vue';
 import VueNotificationStack from '@components/VueNotificationStack/VueNotificationStack.vue';
-import VueCookieConsent from '@components/VueCookieConsent/VueCookieConsent.vue';
 import VueNavigationProgress from '@components/VueNavigationProgress/VueNavigationProgress.vue';
 import VueSidebar from '@components/VueSidebar/VueSidebar.vue';
 import VueSidebarGroup from '@components/VueSidebar/VueSidebarGroup/VueSidebarGroup.vue';
@@ -134,6 +68,7 @@ import VueButton from '@components/VueButton/VueButton.vue';
 import VueModal from '@components/VueModal/VueModal.vue';
 import LoginForm from '@shared/modules/auth/LoginForm/LoginForm.vue';
 import { addNotification } from '@components/VueNotificationStack/utils';
+import VueHeadline from '@/app/shared/components/VueHeadline/VueHeadline.vue';
 
 export default {
   name: 'App',
@@ -152,12 +87,12 @@ export default {
     VueSidebarGroup,
     VueSidebar,
     VueNavigationProgress,
-    VueCookieConsent,
     VueNavBar,
     VueGrid,
     VueGridItem,
     VueFooter,
     VueNotificationStack,
+    VueHeadline,
   },
   data(): any {
     return {

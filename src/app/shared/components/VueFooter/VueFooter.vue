@@ -3,23 +3,18 @@
     <vue-grid>
       <vue-grid-row>
         <vue-grid-item>
-          <small>&copy; Copyright {{ year }} Johannes Werner</small>
+          <small>&copy; Copyright {{ year }} MyLausitz</small>
         </vue-grid-item>
 
-        <vue-grid-item>
-          <a href="https://github.com/devCrossNet" target="_blank" rel="noopener" aria-label="github profile">
-            <vue-icon-github-alt />
-          </a>
-          <a href="https://twitter.com/vuesion1" target="_blank" rel="noopener" aria-label="twitter profile">
-            <vue-icon-twitter-square />
-          </a>
-        </vue-grid-item>
+        <vue-grid-item></vue-grid-item>
 
         <vue-grid-item>
           <small>
-            <a href="https://github.com/vuesion/vuesion/blob/master/LICENSE" target="_blank" rel="noopener">
-              MIT License
-            </a>
+            <a
+              href="https://github.com/vuesion/vuesion/blob/master/LICENSE"
+              target="_blank"
+              rel="noopener"
+            >MIT License</a>
           </small>
         </vue-grid-item>
       </vue-grid-row>
